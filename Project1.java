@@ -20,7 +20,6 @@ public class Project1 {
                 s1.close();
                 Arrays.sort(arr); //Array Sort is O(nlogn)
             return arr;
-
         }
         catch(Exception e) { return null; }
     }
@@ -31,13 +30,13 @@ public class Project1 {
             int k = numArray.length - 1;
             while(j < k){
                 int sum = numArray[j] + numArray[k] + numArray[i];
-                int test = 119;
+                int test = 2;
                 if (sum == test)
                     System.out.println(i+":"+ numArray[i] +", "+j+":"+ numArray[j]+", "+k+":"+ numArray[k]);
-                if(sum > 0)
+                /* if(sum > 0)
                     k--;
                 else if(sum < 0)
-                    j++;
+                    j++; */
                 else 
                     System.out.println("No Solution");
             }
