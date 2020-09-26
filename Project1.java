@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.*;
 
 public class Project1 {
-    public static int[] doTheThing(String file){
+    public static int[] readFile(String file){
         try{
             File f = new File(file);
             Scanner s = new Scanner(f);
@@ -17,14 +17,30 @@ public class Project1 {
 
             for(int i = 0; i < arr.length; i++)
                 arr[i] = s1.nextInt();
-                Arrays.sort(arr);
                 s1.close();
+                Arrays.sort(arr); //Array Sort is O(nlogn)
             return arr;
+
         }
         catch(Exception e) { return null; }
     }
     public static void main(String[] args){
-        int[] txtInput = doTheThing("input.txt");
-        System.out.print(Arrays.toString(txtInput));
+        int[] numArray = readFile("input1.txt");
+        for(int i = 0; i < numArray.length - 2; i++){
+            int j = i + 1;
+            int k = numArray.length - 1;
+            while(j < k){
+                int sum = numArray[j] + numArray[k] + numArray[i];
+                int test = 119;
+                if (sum == test)
+                    System.out.println(i+":"+ numArray[i] +", "+j+":"+ numArray[j]+", "+k+":"+ numArray[k]);
+                if(sum > 0)
+                    k--;
+                else if(sum < 0)
+                    j++;
+                else 
+                    System.out.println("No Solution");
+            }
+        }
     }
 }
