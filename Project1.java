@@ -26,13 +26,11 @@ public class Project1 {
     public static void main(String[] args){
         int[] numArray = readFile("input1.txt");
         System.out.println(Arrays.toString(numArray));
-        int[] addVal = {15, 82, 22, 36, 29, 11, 31, 4, 31};
-        Arrays.sort(addVal);
-        int[] targetVal = {119, 9, -2, 57, 29, 73, 93}; 
-        for(int i = 0; i < addVal.length - 2; i++){
-            int j = i + 1;
-            int k = addVal.length - 1;    
-            int sum = addVal[j] + addVal[k] + addVal[i];
+        for(int i = 0; i < numArray.length; i++){
+            if(numArray[i] == 0)
+                System.out.println("Zero found " + numArray[i]);
+            else
+                System.out.println("Zero not found " + numArray[i]);
         }
         /* for(int i = 0; i < numArray.length - 2; i++){
             int j = i + 1;
@@ -52,3 +50,6 @@ public class Project1 {
         } */
     }
 }
+//int[] addVal = {15, 82, 22, 36, 29, 11, 31, 4, 31};
+//Arrays.sort(addVal);
+//int[] targetVal = {119, 9, -2, 57, 29, 73, 93}; 
