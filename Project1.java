@@ -22,6 +22,10 @@ public class Project1 {
         }
         catch(Exception e) { return null; }
     }
+    public static int findSplit(int arr[], int val){
+        int index = Arrays.binarySearch(arr, val);
+        return (index < 0) ? -1 : index;
+    }
     public static boolean findSum(int arr[], int arrSize, int sum){
         for(int i = 0; i < arrSize - 2; i++){
             int j = i + 1;
@@ -42,6 +46,7 @@ public class Project1 {
     }
     public static void main(String[] args){
         int[] numArray = readFile("input1.txt");
+        System.out.println(findSplit(numArray, 0));
         int[] addArr = {15, 82, 22, 36, 29, 11, 31, 4, 31};
         int[] targetSum = {119, 9, -2, 57, 29, 73, 93}; 
         int size = addArr.length;
