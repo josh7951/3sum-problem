@@ -23,7 +23,8 @@ public class Project1 {
         }
         catch(Exception e) { return null; }
     }
-    //method that will search for zero in the given array from the text file
+    //method that will search for int 0 in the given array from the text file
+    //and return its index position
     public static int findSplit(int arr[], int key){
         if(arr == null) { return -1; }
         int length = arr.length;
@@ -39,19 +40,20 @@ public class Project1 {
         return -1;
     }
     //Method that traverses the addend array and adds three unique values together
+    //and checks to see if sums are equal
     public static boolean findSum(int arr[], int arrSize, int sum){
         for(int i = 0; i < arrSize - 2; i++){
-            int j = i + 1;
-            int k = arrSize - 1;
+            int j = i + 1; //initalize left
+            int k = arrSize - 1; //initialize right
             while(j < k){
                 if(arr[i] + arr[j] + arr[k] == sum){
                     System.out.println(sum + " Yes");
                     return true;
                 }
                 else if(arr[i] + arr[j] + arr[k] < sum)
-                    j++;
+                    j++; //increment from the left 
                 else
-                    k--;
+                    k--; //decrement from the right
             }
         }
         System.out.println(sum + " No");
@@ -61,13 +63,16 @@ public class Project1 {
         int[] fileArr = readFile("input1.txt");
         int fileArrLength = fileArr.length;
         int split = findSplit(fileArr, 0);
+        //makes a copy of the array from start to index at '0'
         int[] addends = Arrays.copyOfRange(fileArr, 0, split);
-        int[] targetSum = Arrays.copyOfRange(fileArr, split+1, fileArrLength);
+        //makes a copy of the array from one spot after index at '0' to the end
+        int[] sumArr = Arrays.copyOfRange(fileArr, split+1, fileArrLength);
         int size = addends.length;
         Arrays.sort(addends);
-        for(int m = 0; m < targetSum.length; m++){
-            int sum = targetSum[m];
-            findSum(addends, size, sum);        
+        //iterates through to compare targetSum to actual sum of different 3 value combos
+        for(int m = 0; m < sumArr.length; m++){
+            int targetSum = sumArr[m];
+            findSum(addends, size, targetSum);        
         }
     }
 }
